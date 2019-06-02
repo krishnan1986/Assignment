@@ -1,18 +1,21 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 
-
-
 <h2> Welcome to user registration page</h2>
 
  <h3> Enter your details to register</h3>
 <body>
-<form action="#" th:action="@{/confirm}" th:object="${userModel}" method="post">
-<p>Enter name: <input type="text" th:field="*{name}"/></p>
-    <p> Enter age: <input type="text" th:field="*{age}"/></p>
-    <p> Enter Email ID: <input type="text" th:field="*{email}"/></p>
-    <p> Enter userID: <input type="text" th:field="*{userId}"/></p>
-    <p> Enter password: <input type="password" th:field="*{password}"/></p>
+<table>
+<form action="#" th:action="@{/login}" th:object="${userModel}" method="POST">
+<tr><p>Enter name: <input type="text" th:field="*{name}"/></tr> </p>
+ <tr>  <p> Enter age:  <input type="text" th:field="*{age}"/></p></tr>
+ <tr>  <p> Enter Email ID:  <input type="text" th:field="*{email}"/></p></tr>
+  <tr> <p> Enter username: <input type="text" th:field="*{userId}"/></p></tr>
+    <tr>   <p> Enter password:  <input type="password" th:field="*{password}"/></p></tr>
+
     <input type="submit" value="Register"></input>
+    <input type="reset" value="Reset"></input>
+
 </form>
+</table>
 </body>
 </html>

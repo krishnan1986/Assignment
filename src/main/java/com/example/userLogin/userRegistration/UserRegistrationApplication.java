@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.context.request.RequestContextListener;
+import servlet.captchaServlet;
 
 @SpringBootApplication
 public class UserRegistrationApplication {
@@ -14,7 +16,12 @@ public class UserRegistrationApplication {
 
 	}
 
-
-
+    @Bean
+    public ServletRegistrationBean exampleServletBean() {
+        ServletRegistrationBean bean = new ServletRegistrationBean(
+                new captchaServlet(), "/captchaServlet/*");
+        bean.setLoadOnStartup(1);
+        return bean;
+    }
 
 }

@@ -1,21 +1,39 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Welcome to user registraion home</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../css/myStyles.css" th:href="@{/css/myStyles.css}"/>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
 
+<body>
 <h2> Welcome to user registration page</h2>
 
- <h3> Enter your details to register</h3>
-<body>
-<table>
-<form action="#" th:action="@{/login}" th:object="${userModel}" method="POST">
-<tr><p>Enter name: <input type="text" th:field="*{name}"/></tr> </p>
- <tr>  <p> Enter age:  <input type="text" th:field="*{age}"/></p></tr>
- <tr>  <p> Enter Email ID:  <input type="text" th:field="*{email}"/></p></tr>
-  <tr> <p> Enter username: <input type="text" th:field="*{userId}"/></p></tr>
-    <tr>   <p> Enter password:  <input type="password" th:field="*{password}"/></p></tr>
+<h3> Enter your details to register</h3>
 
-    <input type="submit" value="Register"></input>
-    <input type="reset" value="Reset"></input>
+    <form action="#" th:action="@{/login}" th:object="${userModel}" method="POST">
+        <table>
+        <tr><p>Enter name: <input type="text" th:field="*{name}"/></tr>
+        </p>
+        <tr><p> Enter age: <input type="text" th:field="*{age}"/></p></tr>
+        <tr><p> Enter Email ID: <input type="text" th:field="*{email}"/></p></tr>
+        <tr><p> Enter username: <input type="text" th:field="*{userId}"/></p></tr>
+        <tr><p> Enter password: <input type="password" th:field="*{password}"/></p></tr>
 
-</form>
-</table>
+        <tr>
+            <td>Enter captcha</td>
+            <td><input type="text" name="code"></td>
+        </tr>
+        <br>
+        <img th:src="@{http://localhost:8080/captchaServlet}">
+
+        </table>
+        <input type="submit" value="Register"></input>
+        <input type="reset" value="Reset"></input>
+    </form>
+
+
+
+
 </body>
 </html>
